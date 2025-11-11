@@ -1,0 +1,10 @@
+# Angular
+/frontend/node_modules
+/frontend/dist
+
+# Spring Boot
+/backend/target
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,63 @@
+-- ========================================
+-- DATABASE: job_portal
+-- ========================================
+
+Start the backend application , the JPA , hibernate will automatically create the required tables according to the entities provided, but please make sure that the application properties is correctly configured with correct DB credentials .
+
+-- ========================================
+-- USERS TABLE
+-- ========================================
+
+INSERT INTO jobs_portal_db.users (username, password, role, created_at, updated_at, deleted, deleted_at) VALUES
+('sarah', '$2b$12$ULRBDlGqJ.nDacVphY0y1.jaCllst1JE3f0zcnRJj2EPlQaRwroJ.', 'ADMIN', NOW(), NOW(), FALSE, NULL),
+('admin_user', '$2b$12$xk7WE4.KBVF3TBBhHoHDEuEd5NmW1EdhL8rDjVGMnKY3tBORmqMiW', 'ADMIN', NOW(), NOW(), FALSE, NULL),
+('emma', '$2b$12$0Pfc52TgpgrI2YBewyhNXOtNIX95tIOJemaNpexCZJRo6in0os11C', 'ADMIN', NOW(), NOW(), FALSE, NULL),
+('ravi', '$2b$12$t7HZvoz4LqOTSLbpeebVYOf0mm9Si8V8zizQB.cUhE11yr4/LgW9G', 'ADMIN', NOW(), NOW(), FALSE, NULL);
+
+
+-- ========================================
+-- JOB POSTINGS TABLE
+-- ========================================
+
+INSERT INTO jobs_portal_db.job_posting (title, company, location, type, description, skills, salary, posted_date) VALUES
+('Software Engineer', 'TechNova Solutions', 'Bangalore', 'Full-time',
+ 'Develop and maintain scalable backend services using Java and Spring Boot. Collaborate with frontend and DevOps teams for seamless delivery.',
+ 'Java, Spring Boot, MySQL, AWS, REST APIs',
+ 850000.00, NOW()),
+
+('Frontend Developer', 'PixelWave Technologies', 'Remote', 'Full-time',
+ 'Design and implement modern user interfaces using Angular and TypeScript. Work closely with UX designers to build responsive layouts.',
+ 'Angular, TypeScript, HTML, CSS, RxJS',
+ 700000.00, NOW()),
+
+('DevOps Engineer', 'Cloudify Systems', 'Hyderabad', 'Full-time',
+ 'Manage CI/CD pipelines, automate deployments, and ensure high availability of services. Experience with AWS and Jenkins preferred.',
+ 'AWS, Jenkins, Docker, Kubernetes, Linux',
+ 950000.00, NOW()),
+
+('Data Analyst', 'Insight Analytics', 'Pune', 'Part-time',
+ 'Analyze data sets to generate insights and visualizations. Create reports and dashboards using modern BI tools.',
+ 'SQL, Python, Power BI, Excel',
+ 600000.00, NOW()),
+
+('Backend Developer Intern', 'NextGen Labs', 'Gurgaon', 'Internship',
+ 'Assist in building microservices and APIs. Exposure to Spring Boot and MongoDB preferred. Great learning opportunity.',
+ 'Java, Spring Boot, MongoDB, REST APIs',
+ 200000.00, NOW());
+
+
+-- ========================================
+-- APPLICATIONS TABLE
+-- ========================================
+
+-- Dummy Applications
+INSERT INTO application (job_id, applicant_name, email, resume_url)
+VALUES
+(1, 'Shubhankar Shyamal', 'shyamalshubhankar@gmail.com', 'http://example.com/resume1.pdf'),
+(2, 'Jane Doe', 'jane.doe@example.com', 'http://example.com/resume2.pdf');
+
+-- ========================================
+-- INDEXES
+-- ========================================
+CREATE INDEX idx_job_id ON application(job_id);
+CREATE INDEX idx_username ON users(username);

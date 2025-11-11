@@ -1,0 +1,52 @@
+<div class="application-container p-4" *ngIf="job; else loading">
+  <div class="application-header">
+    <h2>Apply for {{ job.title }}</h2>
+    <p class="text-muted">{{ job.company }} · {{ job.location }} · {{ job.type }}</p>
+  </div>
+
+  <div class="application-body">
+    <p class="job-description">{{ job.description }}</p>
+
+    <form (ngSubmit)="submitApplication()" #applyForm="ngForm" class="application-form">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="application.name"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="application.email"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Resume / Cover Letter</label>
+        <textarea
+          class="form-control"
+          name="message"
+          rows="4"
+          [(ngModel)]="application.message"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!applyForm.valid">
+        Submit Application
+      </button>
+    </form>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-text">Loading job details...</div>
+</ng-template>

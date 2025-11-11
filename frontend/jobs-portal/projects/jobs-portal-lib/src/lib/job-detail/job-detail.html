@@ -1,0 +1,14 @@
+<div class="job-detail">
+  <p class="text-muted mb-2 small">
+    {{ job.company }} · {{ job.location }} · {{ job.type }}
+  </p>
+  <p class="text-secondary small mb-3">{{ job.description }}</p>
+
+  <div class="badges mb-3">
+    <span *ngFor="let skill of skillsArray" class="badge bg-light text-dark me-2">
+      {{ skill }}
+    </span>
+  </div>
+
+  <button class="btn btn-success px-3" (click)="openForm(job.id)">Apply</button>
+</div>

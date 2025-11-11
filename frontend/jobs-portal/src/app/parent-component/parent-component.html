@@ -1,0 +1,48 @@
+<div class="parent-container">
+  
+  <header class="header d-flex justify-content-between align-items-center">
+    <h1 class="logo">CareerConnect</h1>
+
+    <nav class="nav-buttons">
+      <button 
+        class="btn btn-primary" 
+        [class.active]="toggleJobsListing" 
+        (click)="viewJobs()">
+        <i class="fa-solid fa-briefcase"></i> Jobs
+      </button>
+
+      <button 
+        *ngIf="!isLoggedIn" 
+        class="btn btn-outline" 
+        (click)="showLogin = true">
+        Login
+      </button>
+
+      <button 
+        *ngIf="isLoggedIn" 
+        class="btn btn-outline-danger" 
+        (click)="logout()">
+        Logout
+      </button>
+    </nav>
+  </header>
+
+ 
+  <section class="hero" *ngIf="!toggleJobsListing">
+    <h2>Your dream job, one click away.</h2>
+    <p>Discover thousands of opportunities that match your skills and passion.</p>
+    <button class="btn btn-accent" (click)="viewJobs()">Explore Jobs</button>
+  </section>
+
+  
+  <section class="jobs-section fade-in" *ngIf="toggleJobsListing">
+    <h2 class="section-title">Available Positions</h2>
+    <lib-job-list [jobs] = "jobs" 
+    [isLoggedIn]="isLoggedIn" 
+    (deleteJob)="deleteJob($event)"
+    ></lib-job-list>
+  </section>
+</div>
+
+<app-login *ngIf="showLogin" (close)="showLogin = false" (loginSuccess)="onLoginSuccess()"></app-login>
+

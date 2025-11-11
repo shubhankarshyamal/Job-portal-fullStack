@@ -1,0 +1,74 @@
+/* Overlay behind the modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+
+/* Modal container */
+.modal-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1010; /* above overlay */
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-dialog {
+  pointer-events: auto;
+}
+
+/* Header of modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Close button styling */
+.btn-close {
+  background: transparent;
+  border: 1px solid black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Form fields styling */
+.form-label {
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+/* Error message */
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* Submit button */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
