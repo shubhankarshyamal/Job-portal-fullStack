@@ -79,13 +79,14 @@ jobportal-backend/
 ### Frontend 
 1. Clone the repository and keep in mind that we have integrated two seprate projects into one projects i.e. the angular library project and the parent project.
 2. Thus we need to separately start both one by one .
-3. navigate to the job-portal
-4. Build and run 
+3. navigate to the job-portal-lib
+4. Build and run
+5. navigate to the job-portal
+6. Build and run
 
 ```bash
-
-ng build jobs-portal-lib --watch
 npm install
+ng build jobs-portal-lib --watch
 ng serve
 ```
 
