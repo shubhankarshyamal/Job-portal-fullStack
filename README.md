@@ -1,2 +1,90 @@
 # Job-portal-fullStack
 This is job-portal full stack application with frontend in angular, backend in springboot and SQL used, It has features like JWT for authentication and authorization
+
+---
+
+## Features
+
+### User Features
+- Browse job listings
+- View job details
+- Apply to jobs via a form
+- JWT-based login/logout
+- Redirect to a job application page on click
+- Submit application and store timestamp in DB
+
+### Admin Features
+- Delete jobs from the listing
+- View all applications
+- Delete user applications
+
+---
+
+## Tech Stack
+
+**Frontend**
+- Angular (standalone components, NgModules)
+- TypeScript
+- Bootstrap CSS
+
+**Backend**
+- Spring Boot
+- Spring Security with JWT authentication
+- JPA/Hibernate
+- MySQL (or other relational DB)
+
+**APIs**
+- REST endpoints for jobs, applications, and authentication
+
+---
+
+Structure for the frontend: 
+
+jobs-portal-frontend/
+├── src/app/
+│ ├── core/services/ # Angular services (JobService, AuthService, ApplicationService)
+│ ├── job-portal-lib/ # Reusable Angular library
+│ │ ├── job-list/ # Job listing component
+│ │ ├── job-detail/ # Job detail component
+│ │ └── job-application/ # Job application component
+│ ├── login/ # Login component
+│ ├── parent-component/ # Parent component (main page)
+│ ├── app.router.ts # Routes
+│ └── styles.scss # Global styles
+
+Structure for the backend :
+
+jobportal-backend/
+├── src/main/java/com/jobportal/
+│ ├── controller/ # REST controllers (JobController, ApplicationController, AuthController)
+│ ├── entity/ # JPA entities (JobPosting, Application, User)
+│ ├── repository/ # Spring Data JPA repositories
+│ ├── service/ # Business logic services
+│ └── security/ # JWT and security configuration
+└── application.properties # DB and application configs
+
+
+## Setup Instructions
+
+### Backend
+1. Clone the repository and navigate to `jobportal-backend`.
+2. Configure DB in `application.properties`.
+3. Build and run:
+```bash
+./mvnw clean install
+./mvnw spring-boot:run
+
+
+### Frontend 
+1. Clone the repository and keep in mind that we have integrated two seprate projects into one projects i.e. the angular library project and the parent project.
+2. Thus we need to separately start both one by one .
+3. navigate to the job-portal
+4. Build and run 
+
+```bash
+
+ng build jobs-portal-lib --watch
+npm install
+ng serve
+
+
