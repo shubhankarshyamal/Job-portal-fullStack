@@ -15,8 +15,8 @@ This is job-portal full stack application with frontend in angular, backend in s
 
 ### Admin Features
 - Delete jobs from the listing
-- View all applications
-- Delete user applications
+- Create Jobs from the listing
+
 
 ---
 
@@ -73,6 +73,7 @@ jobportal-backend/
 ```bash
 ./mvnw clean install
 ./mvnw spring-boot:run
+```
 
 
 ### Frontend 
@@ -86,5 +87,6 @@ jobportal-backend/
 ng build jobs-portal-lib --watch
 npm install
 ng serve
+```
 
 
