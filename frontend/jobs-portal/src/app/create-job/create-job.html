@@ -1,0 +1,57 @@
+<div class="popup-overlay">
+  <div class="popup-card">
+    <div class="popup-header d-flex justify-content-between align-items-center mb-3">
+      <h3 class="popup-title mb-0">Create Job Post</h3>
+      <button class="btn-close" (click)="closePopup()" aria-label="Close"></button>
+    </div>
+
+    <form (ngSubmit)="createJob()" class="popup-form">
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input id="title" type="text" [(ngModel)]="job.title" name="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input id="company" type="text" [(ngModel)]="job.company" name="company" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" type="text" [(ngModel)]="job.location" name="location" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="salary">Salary (₹)</label>
+          <input id="salary" type="number" [(ngModel)]="job.salary" name="salary" />
+        </div>
+
+        <div class="form-group half">
+          <label for="type">Job Type</label>
+          <select id="type" [(ngModel)]="job.type" name="type">
+            <option>Full-time</option>
+            <option>Part-time</option>
+            <option>Contract</option>
+            <option>Internship</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skills">Required Skills</label>
+        <input id="skills" type="text" [(ngModel)]="job.skills" name="skills" placeholder="e.g. Angular, Spring Boot" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Job Description</label>
+        <textarea id="description" [(ngModel)]="job.description" name="description" rows="3"></textarea>
+      </div>
+
+      <div class="popup-actions">
+        <button type="submit" class="btn btn-primary">Post Job</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="closePopup()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

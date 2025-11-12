@@ -9,13 +9,12 @@ import { FormsModule } from '@angular/forms';
   Angular router & HTTP
 */
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 /*
   Application services
 */
-import { Job } from '../services/job';
-import { ApplicationService } from '../services/application-service';
+import { Job } from '../services/job.service';
+import { ApplicationService } from '../services/application.service';
 
 
 @Component({

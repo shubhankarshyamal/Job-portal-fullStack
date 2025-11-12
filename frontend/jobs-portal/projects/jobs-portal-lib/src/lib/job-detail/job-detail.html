@@ -10,5 +10,6 @@
     </span>
   </div>
 
-  <button class="btn btn-success px-3" (click)="openForm(job.id)">Apply</button>
+  <button *ngIf="!isLoggedIn" 
+  class="btn btn-success px-3" (click)="openForm(job.id)">Apply</button>
 </div>

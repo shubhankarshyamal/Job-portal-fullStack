@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 /*
   Application services
 */
-import { AuthService } from '../core/services/auth-service';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-login',

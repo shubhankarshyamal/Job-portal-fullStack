@@ -5,6 +5,13 @@
 
     <nav class="nav-buttons">
       <button 
+        *ngIf="isLoggedIn"
+        class="btn btn-success"
+        (click)="openJobPostPopup(true)">
+        <i class="fa-solid fa-plus"></i> Create Job Post
+      </button>
+
+      <button 
         class="btn btn-primary" 
         [class.active]="toggleJobsListing" 
         (click)="viewJobs()">
@@ -45,4 +52,10 @@
 </div>
 
 <app-login *ngIf="showLogin" (close)="showLogin = false" (loginSuccess)="onLoginSuccess()"></app-login>
+
+<app-create-job 
+  *ngIf="showCreateJob" 
+  (close)="showCreateJob = false" 
+  (jobCreated)="onJobCreated($event)">
+</app-create-job>
 

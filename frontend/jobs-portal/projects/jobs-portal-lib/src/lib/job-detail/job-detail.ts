@@ -32,6 +32,7 @@ export class JobDetail {
   /**
    * toggle ui fields
    */
+  @Input() isLoggedIn: boolean = false;
   showForm: boolean = false;
 
   constructor(
